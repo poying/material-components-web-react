@@ -153,6 +153,12 @@ export function withRipple<
       }
     }
 
+    componentDidUpdate(prevProps: RippledComponentProps<Surface>) {
+      if (prevProps.disabled !== this.props.disabled && this.props.disabled) {
+        this.foundation.handleBlur();
+      }
+    }
+
     // surface: This element receives the visual treatment (classes and style) of the ripple.
     // activator: This element is used to detect whether to activate the ripple. If this is not
     // provided, the ripple surface will be used to detect activation.
